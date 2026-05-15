@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "D:\\Vs\\VSPROJ\\PowerScale\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\other\\er.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\other\\er.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\other\\relation.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\other\\relation.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\powerscale.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\powerscale.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,47 +18,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Relation.png",
               "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Other\\Relation.png",
               "RelativeDocumentMoniker": "PowerScale\\Other\\Relation.png",
               "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Other\\Relation.png",
               "RelativeToolTip": "PowerScale\\Other\\Relation.png",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-03-21T00:43:12.069Z",
+              "WhenOpened": "2026-05-15T14:45:17.298Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ER.png",
-              "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Other\\ER.png",
-              "RelativeDocumentMoniker": "PowerScale\\Other\\ER.png",
-              "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Other\\ER.png",
-              "RelativeToolTip": "PowerScale\\Other\\ER.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-03-21T00:43:08.432Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PowerScale.csproj",
-              "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\PowerScale.csproj",
-              "RelativeDocumentMoniker": "PowerScale\\PowerScale.csproj",
-              "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\PowerScale.csproj",
-              "RelativeToolTip": "PowerScale\\PowerScale.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-02-20T18:08:29.407Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Program.cs",
               "RelativeDocumentMoniker": "PowerScale\\Program.cs",
