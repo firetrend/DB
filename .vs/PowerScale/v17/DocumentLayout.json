@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\Vs\\VSPROJ\\PowerScale\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\other\\relation.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\other\\relation.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -23,24 +19,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Relation.png",
-              "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Other\\Relation.png",
-              "RelativeDocumentMoniker": "PowerScale\\Other\\Relation.png",
-              "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Other\\Relation.png",
-              "RelativeToolTip": "PowerScale\\Other\\Relation.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-05-15T14:45:17.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Program.cs",
               "RelativeDocumentMoniker": "PowerScale\\Program.cs",
               "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Program.cs",
               "RelativeToolTip": "PowerScale\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-20T18:08:03.277Z",
               "EditorCaption": ""

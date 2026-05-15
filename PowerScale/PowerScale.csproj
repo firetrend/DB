@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Back\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Front\" />
     <Folder Include="Other\" />
   </ItemGroup>
