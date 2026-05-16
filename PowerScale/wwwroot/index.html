@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerScale</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a2e;
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #16213e;
+            padding: 16px 32px;
+            border-bottom: 2px solid #0f3460;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        header h1 { color: #e94560; font-size: 24px; }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        nav button {
+            background: #0f3460;
+            color: #e0e0e0;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        nav button:hover, nav button.active {
+            background: #e94560;
+            color: white;
+        }
+
+        .container { max-width: 1100px; margin: 32px auto; padding: 0 24px; }
+
+        .section { display: none; }
+        .section.active { display: block; }
+
+        h2 { color: #e94560; margin-bottom: 20px; font-size: 20px; }
+
+        .card {
+            background: #16213e;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #0f3460;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        input, select, textarea {
+            background: #0f3460;
+            border: 1px solid #1a4a8a;
+            color: #e0e0e0;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            width: 100%;
+            outline: none;
+        }
+
+        input:focus, select:focus { border-color: #e94560; }
+
+        label { font-size: 12px; color: #888; margin-bottom: 4px; display: block; }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover { opacity: 0.85; }
+        .btn-primary { background: #e94560; color: white; }
+        .btn-success { background: #2ecc71; color: white; }
+        .btn-danger  { background: #e74c3c; color: white; }
+        .btn-info    { background: #3498db; color: white; }
+
+        .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background: #0f3460;
+            color: #e94560;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td { padding: 10px 12px; border-bottom: 1px solid #0f3460; }
+        tr:hover td { background: #1e2d50; }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-god    { background: #f39c12; color: #000; }
+        .badge-s      { background: #e74c3c; color: #fff; }
+        .badge-a      { background: #e67e22; color: #fff; }
+        .badge-b      { background: #3498db; color: #fff; }
+        .badge-c      { background: #2ecc71; color: #000; }
+        .badge-f      { background: #555;    color: #fff; }
+        .badge-admin  { background: #e94560; color: #fff; }
+        .badge-user   { background: #3498db; color: #fff; }
+
+        .message {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .message.success { background: #1e4d2b; border: 1px solid #2ecc71; color: #2ecc71; display: block; }
+        .message.error   { background: #4d1e1e; border: 1px solid #e74c3c; color: #e74c3c; display: block; }
+
+        .analytics-result {
+            background: #0f3460;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stat-box {
+            background: #16213e;
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+            border: 1px solid #1a4a8a;
+        }
+
+        .stat-box .value { font-size: 28px; font-weight: 700; color: #e94560; }
+        .stat-box .label { font-size: 12px; color: #888; margin-top: 4px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>⚡ PowerScale</h1>
+    <nav>
+        <button class="active" onclick="showSection('characters')">Персонажи</button>
+        <button onclick="showSection('users')">Пользователи</button>
+        <button onclick="showSection('analytics')">Аналитика</button>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- ───────────── ПЕРСОНАЖИ ───────────── -->
+    <div id="characters" class="section active">
+        <h2>Персонажи</h2>
+
+        <div class="card">
+            <h3 style="margin-bottom:14px; color:#aaa; font-size:15px;">Добавить / Редактировать персонажа</h3>
+            <div id="char-msg" class="message"></div>
+            <div class="form-row">
+                <div>
+                    <label>ID (для редактирования/удаления)</label>
+                    <input type="number" id="char-id" placeholder="Оставь пустым для создания">
+                </div>
+                <div>
+                    <label>Имя *</label>
+                    <input type="text" id="char-name" placeholder="Например: Goku">
+                </div>
+                <div>
+                    <label>Возраст</label>
+                    <input type="number" id="char-age" placeholder="Возраст">
+                </div>
+                <div>
+                    <label>Powerscale</label>
+                    <input type="number" id="char-power" placeholder="Сила">
+                </div>
+                <div>
+                    <label>Universe ID</label>
+                    <input type="number" id="char-universe" placeholder="ID вселенной">
+                </div>
+                <div>
+                    <label>Навыки</label>
+                    <input type="text" id="char-skills" placeholder="Навыки">
+                </div>
+            </div>
+            <div class="btn-row">
+                <button class="btn btn-success" onclick="createCharacter()">Добавить</button>
+                <button class="btn btn-primary" onclick="updateCharacter()">Обновить</button>
+                <button class="btn btn-danger"  onclick="deleteCharacter()">Удалить</button>
+                <button class="btn btn-info"    onclick="loadCharacters()">Обновить список</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom:14px; color:#aaa; font-size:15px;">Поиск по ID</h3>
+            <div style="display:flex; gap:10px;">
+                <input type="number" id="char-search-id" placeholder="Введи ID персонажа" style="max-width:200px;">
+                <button class="btn btn-info" onclick="getCharacterById()">Найти</button>
+            </div>
+            <div id="char-search-result" style="margin-top:12px;"></div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom:14px; color:#aaa; font-size:15px;">Список персонажей</h3>
+            <div id="characters-table">Загрузка...</div>
+        </div>
+    </div>
+
+    <!-- ───────────── ПОЛЬЗОВАТЕЛИ ───────────── -->
+    <div id="users" class="section">
+        <h2>Пользователи</h2>
+
+        <div class="card">
+            <h3 style="margin-bottom:14px; color:#aaa; font-size:15px;">Добавить / Редактировать пользователя</h3>
+            <div id="user-msg" class="message"></div>
+            <div class="form-row">
+                <div>
+                    <label>ID (для редактирования/удаления)</label>
+                    <input type="number" id="user-id" placeholder="Оставь пустым для создания">
+                </div>
+                <div>
+                    <label>Никнейм *</label>
+                    <input type="text" id="user-nickname" placeholder="Никнейм">
+                </div>
+                <div>
+                    <label>Email *</label>
+                    <input type="email" id="user-email" placeholder="email@example.com">
+                </div>
+                <div>
+                    <label>Репутация</label>
+                    <input type="number" id="user-rep" placeholder="0">
+                </div>
+                <div>
+                    <label>Администратор</label>
+                    <select id="user-admin">
+                        <option value="false">Нет</option>
+                        <option value="true">Да</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-row">
+                <button class="btn btn-success" onclick="createUser()">Добавить</button>
+                <button class="btn btn-primary" onclick="updateUser()">Обновить</button>
+                <button class="btn btn-danger"  onclick="deleteUser()">Удалить</button>
+                <button class="btn btn-info"    onclick="loadUsers()">Обновить список</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom:14px; color:#aaa; font-size:15px;">Список пользователей</h3>
+            <div id="users-table">Загрузка...</div>
+        </div>
+    </div>
+
+    <!-- ───────────── АНАЛИТИКА ───────────── -->
+    <div id="analytics" class="section">
+        <h2>Аналитика</h2>
+
+        <div class="card">
+            <h3 style="margin-bottom:14px; color:#aaa; font-size:15px;">
+                Топ персонажей по силе из вселенной
+            </h3>
+            <div class="form-row">
+                <div>
+                    <label>Название вселенной</label>
+                    <input type="text" id="an-universe" placeholder="Например: Marvel">
+                </div>
+                <div>
+                    <label>Количество (лимит)</label>
+                    <input type="number" id="an-limit" placeholder="10" value="10">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="getTopCharacters()">Показать</button>
+            <div id="analytics-top" class="analytics-result" style="display:none;"></div>
+        </div>
+
+        <div class="card">
+            <h3 style="margin-bottom:14px; color:#aaa; font-size:15px;">
+                Статистика боёв пользователя
+            </h3>
+            <div class="form-row">
+                <div>
+                    <label>Никнейм пользователя</label>
+                    <input type="text" id="an-nickname" placeholder="Например: Chiperlot">
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="getFightStats()">Показать</button>
+            <div id="analytics-fights" class="analytics-result" style="display:none;"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+const API = '';
+
+// ─── Навигация ───
+function showSection(name) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById(name).classList.add('active');
+    event.target.classList.add('active');
+
+    if (name === 'characters') loadCharacters();
+    if (name === 'users') loadUsers();
+}
+
+// ─── Утилиты ───
+function showMsg(id, text, type) {
+    const el = document.getElementById(id);
+    el.textContent = text;
+    el.className = `message ${type}`;
+    setTimeout(() => el.className = 'message', 3000);
+}
+
+function getTier(power) {
+    if (power >= 100000) return '<span class="badge badge-god">GOD</span>';
+    if (power >= 10000)  return '<span class="badge badge-s">S-tier</span>';
+    if (power >= 1000)   return '<span class="badge badge-a">A-tier</span>';
+    if (power >= 100)    return '<span class="badge badge-b">B-tier</span>';
+    if (power >= 10)     return '<span class="badge badge-c">C-tier</span>';
+    return '<span class="badge badge-f">F-tier</span>';
+}
+
+// ─── ПЕРСОНАЖИ ───
+async function loadCharacters() {
+    const res = await fetch(`${API}/api/Character`);
+    const data = await res.json();
+
+    const rows = data.map(c => `
+        <tr>
+            <td>${c.characterId}</td>
+            <td>${c.name}</td>
+            <td>${c.age ?? '—'}</td>
+            <td>${c.powerscale ?? 0} ${getTier(c.powerscale)}</td>
+            <td>${c.universeName}</td>
+            <td>${c.skills ?? '—'}</td>
+        </tr>
+    `).join('');
+
+    document.getElementById('characters-table').innerHTML = `
+        <table>
+            <thead><tr>
+                <th>ID</th><th>Имя</th><th>Возраст</th>
+                <th>Сила</th><th>Вселенная</th><th>Навыки</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+        </table>
+    `;
+}
+
+async function getCharacterById() {
+    const id = document.getElementById('char-search-id').value;
+    if (!id) return;
+
+    const res = await fetch(`${API}/api/Character/${id}`);
+    if (!res.ok) {
+        document.getElementById('char-search-result').innerHTML =
+            '<span style="color:#e74c3c">Персонаж не найден</span>';
+        return;
+    }
+    const c = await res.json();
+    document.getElementById('char-search-result').innerHTML = `
+        <div style="background:#0f3460; padding:12px; border-radius:8px;">
+            <b>${c.name}</b> | Вселенная: ${c.universeName} | 
+            Сила: ${c.powerscale} ${getTier(c.powerscale)} | 
+            Возраст: ${c.age ?? '—'}
+        </div>
+    `;
+}
+
+async function createCharacter() {
+    const body = {
+        name: document.getElementById('char-name').value,
+        age: document.getElementById('char-age').value || null,
+        powerscale: document.getElementById('char-power').value || null,
+        skills: document.getElementById('char-skills').value || null,
+        universeId: document.getElementById('char-universe').value || null
+    };
+
+    if (!body.name) { showMsg('char-msg', 'Введи имя персонажа', 'error'); return; }
+
+    const res = await fetch(`${API}/api/Character`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+    });
+
+    if (res.ok) {
+        showMsg('char-msg', 'Персонаж добавлен!', 'success');
+        loadCharacters();
+    } else {
+        const err = await res.json();
+        showMsg('char-msg', err.message || 'Ошибка', 'error');
+    }
+}
+
+async function updateCharacter() {
+    const id = document.getElementById('char-id').value;
+    if (!id) { showMsg('char-msg', 'Введи ID для обновления', 'error'); return; }
+
+    const body = {
+        name: document.getElementById('char-name').value,
+        age: document.getElementById('char-age').value || null,
+        powerscale: document.getElementById('char-power').value || null,
+        skills: document.getElementById('char-skills').value || null,
+        universeId: document.getElementById('char-universe').value || null
+    };
+
+    const res = await fetch(`${API}/api/Character/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+    });
+
+    if (res.ok) {
+        showMsg('char-msg', 'Персонаж обновлён!', 'success');
+        loadCharacters();
+    } else {
+        const err = await res.json();
+        showMsg('char-msg', err.message || 'Ошибка', 'error');
+    }
+}
+
+async function deleteCharacter() {
+    const id = document.getElementById('char-id').value;
+    if (!id) { showMsg('char-msg', 'Введи ID для удаления', 'error'); return; }
+
+    if (!confirm(`Удалить персонажа с ID ${id}?`)) return;
+
+    const res = await fetch(`${API}/api/Character/${id}`, { method: 'DELETE' });
+
+    if (res.ok) {
+        showMsg('char-msg', 'Персонаж удалён!', 'success');
+        loadCharacters();
+    } else {
+        const err = await res.json();
+        showMsg('char-msg', err.message || 'Ошибка', 'error');
+    }
+}
+
+// ─── ПОЛЬЗОВАТЕЛИ ───
+async function loadUsers() {
+    const res = await fetch(`${API}/api/User`);
+    const data = await res.json();
+
+    const rows = data.map(u => `
+        <tr>
+            <td>${u.userId}</td>
+            <td>${u.nickname}</td>
+            <td>${u.email ?? '—'}</td>
+            <td>${u.rep}</td>
+            <td>${u.adminstatus
+                ? '<span class="badge badge-admin">Admin</span>'
+                : '<span class="badge badge-user">User</span>'}</td>
+        </tr>
+    `).join('');
+
+    document.getElementById('users-table').innerHTML = `
+        <table>
+            <thead><tr>
+                <th>ID</th><th>Никнейм</th><th>Email</th>
+                <th>Репутация</th><th>Статус</th>
+            </tr></thead>
+            <tbody>${rows}</tbody>
+        </table>
+    `;
+}
+
+async function createUser() {
+    const body = {
+        nickname: document.getElementById('user-nickname').value,
+        email: document.getElementById('user-email').value || null,
+        rep: document.getElementById('user-rep').value || 0,
+        adminstatus: document.getElementById('user-admin').value === 'true'
+    };
+
+    if (!body.nickname) { showMsg('user-msg', 'Введи никнейм', 'error'); return; }
+
+    const res = await fetch(`${API}/api/User`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+    });
+
+    if (res.ok) {
+        showMsg('user-msg', 'Пользователь добавлен!', 'success');
+        loadUsers();
+    } else {
+        const err = await res.json();
+        showMsg('user-msg', err.message || 'Ошибка', 'error');
+    }
+}
+
+async function updateUser() {
+    const id = document.getElementById('user-id').value;
+    if (!id) { showMsg('user-msg', 'Введи ID для обновления', 'error'); return; }
+
+    const body = {
+        nickname: document.getElementById('user-nickname').value,
+        email: document.getElementById('user-email').value || null,
+        rep: document.getElementById('user-rep').value || null,
+        adminstatus: document.getElementById('user-admin').value === 'true'
+    };
+
+    const res = await fetch(`${API}/api/User/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+    });
+
+    if (res.ok) {
+        showMsg('user-msg', 'Пользователь обновлён!', 'success');
+        loadUsers();
+    } else {
+        const err = await res.json();
+        showMsg('user-msg', err.message || 'Ошибка', 'error');
+    }
+}
+
+async function deleteUser() {
+    const id = document.getElementById('user-id').value;
+    if (!id) { showMsg('user-msg', 'Введи ID для удаления', 'error'); return; }
+
+    if (!confirm(`Удалить пользователя с ID ${id}?`)) return;
+
+    const res = await fetch(`${API}/api/User/${id}`, { method: 'DELETE' });
+
+    if (res.ok) {
+        showMsg('user-msg', 'Пользователь удалён!', 'success');
+        loadUsers();
+    } else {
+        const err = await res.json();
+        showMsg('user-msg', err.message || 'Ошибка', 'error');
+    }
+}
+
+// ─── АНАЛИТИКА ───
+async function getTopCharacters() {
+    const universe = document.getElementById('an-universe').value;
+    const limit = document.getElementById('an-limit').value || 10;
+
+    if (!universe) { alert('Введи название вселенной'); return; }
+
+    const res = await fetch(`${API}/api/Character/analytics/top?universeName=${encodeURIComponent(universe)}&limit=${limit}`);
+    const el = document.getElementById('analytics-top');
+    el.style.display = 'block';
+
+    if (!res.ok) {
+        el.innerHTML = '<span style="color:#e74c3c">Персонажи не найдены</span>';
+        return;
+    }
+
+    const data = await res.json();
+    const rows = data.map((c, i) => `
+        <tr>
+            <td>${i + 1}</td>
+            <td>${c.name}</td>
+            <td>${c.powerscale} ${getTier(c.powerscale)}</td>
+            <td>${c.age ?? '—'}</td>
+            <td>${c.universeName}</td>
+        </tr>
+    `).join('');
+
+    el.innerHTML = `
+        <table>
+            <thead><tr><th>#</th><th>Имя</th><th>Сила</th><th>Возраст</th><th>Вселенная</th></tr></thead>
+            <tbody>${rows}</tbody>
+        </table>
+    `;
+}
+
+async function getFightStats() {
+    const nickname = document.getElementById('an-nickname').value;
+    if (!nickname) { alert('Введи никнейм'); return; }
+
+    const res = await fetch(`${API}/api/User/analytics/fights?nickname=${encodeURIComponent(nickname)}`);
+    const el = document.getElementById('analytics-fights');
+    el.style.display = 'block';
+
+    if (!res.ok) {
+        el.innerHTML = '<span style="color:#e74c3c">Пользователь не найден</span>';
+        return;
+    }
+
+    const data = await res.json();
+    const rows = data.fights.map(f => `
+        <tr>
+            <td>${f.fighter1}</td>
+            <td>vs</td>
+            <td>${f.fighter2}</td>
+            <td>${f.fightexodus}</td>
+        </tr>
+    `).join('');
+
+    el.innerHTML = `
+        <div class="stat-grid">
+            <div class="stat-box">
+                <div class="value">${data.nickname}</div>
+                <div class="label">Никнейм</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">${data.rep}</div>
+                <div class="label">Репутация</div>
+            </div>
+            <div class="stat-box">
+                <div class="value">${data.totalFights}</div>
+                <div class="label">Всего боёв</div>
+            </div>
+        </div>
+        ${rows.length > 0 ? `
+        <table>
+            <thead><tr><th>Боец 1</th><th></th><th>Боец 2</th><th>Исход</th></tr></thead>
+            <tbody>${rows}</tbody>
+        </table>` : '<p style="color:#888">Боёв не найдено</p>'}
+    `;
+}
+
+// Загружаем персонажей при старте
+loadCharacters();
+</script>
+</body>
+</html>

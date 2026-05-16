@@ -1,0 +1,2 @@
+wwwroot\index.html
+D:\Vs\VSPROJ\PowerScale\PowerScale\wwwroot\index.html

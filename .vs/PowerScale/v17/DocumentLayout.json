@@ -5,6 +5,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\back\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\back\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\powerscale.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\powerscale.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|d:\\vs\\vsproj\\powerscale\\powerscale\\powerscale.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E89E74D3-3CE7-4BAA-BDFB-1A906ECED87E}|PowerScale\\PowerScale.csproj|solutionrelative:powerscale\\powerscale.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +30,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PowerScale",
+              "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\PowerScale.csproj",
+              "RelativeDocumentMoniker": "PowerScale\\PowerScale.csproj",
+              "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\PowerScale.csproj",
+              "RelativeToolTip": "PowerScale\\PowerScale.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-16T01:18:33.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PowerScale",
+              "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\PowerScale.csproj",
+              "RelativeDocumentMoniker": "PowerScale\\PowerScale.csproj",
+              "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\PowerScale.csproj",
+              "RelativeToolTip": "PowerScale\\PowerScale.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-16T01:18:11.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\appsettings.json",
+              "RelativeDocumentMoniker": "PowerScale\\appsettings.json",
+              "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\appsettings.json",
+              "RelativeToolTip": "PowerScale\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-16T01:03:57.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Back\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "PowerScale\\Back\\AppDbContext.cs",
+              "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Back\\AppDbContext.cs",
+              "RelativeToolTip": "PowerScale\\Back\\AppDbContext.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwC8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T00:56:15.747Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +91,7 @@
               "RelativeDocumentMoniker": "PowerScale\\Program.cs",
               "ToolTip": "D:\\Vs\\VSPROJ\\PowerScale\\PowerScale\\Program.cs",
               "RelativeToolTip": "PowerScale\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-20T18:08:03.277Z",
               "EditorCaption": ""
